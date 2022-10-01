@@ -5,7 +5,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Libraries.Configuration
   internal class TestConfiguration
   {
     public static string SauceDemoUrl => "https://www.saucedemo.com";
-    public static string SupportedBrowser => "ChromeBrowser";
+    public static string SupportedBrowser => "GoogleChrome";
 
     public static string validUserName => "standard_user";
     public static string validPassword => "secret_sauce";

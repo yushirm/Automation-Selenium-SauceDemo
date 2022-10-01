@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4977bf60_002D3411_002D489b_002D8c18_002D69925fce9386/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GivenShoppingCartOpen_WheContinueShoppingButtonClicked_ThenShouldRedirectToInventoryPage" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::651735BA-BF6A-40C2-B6C8-5F6A5E176435::net6.0::Automation.Selenium.SauceDemo.CartPageTests.GivenShoppingCartOpen_WheContinueShoppingButtonClicked_ThenShouldRedirectToInventoryPage&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::651735BA-BF6A-40C2-B6C8-5F6A5E176435::net6.0::Automation.Selenium.SauceDemo.LoginPageTests.GivenCorrectCredentials_WhenLoginButtonClicked_ShouldRedirectToInventoryPage&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
