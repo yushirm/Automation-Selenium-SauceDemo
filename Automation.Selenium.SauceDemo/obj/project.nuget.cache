@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Iav3p26Y3yiXtr2aWKqt5hTJXeskjFP4c0wxni4ljrDKRVFKP9lIQeI9eN/OmBwtwCV6NmCeW6IcMPLIo9hXMA==",
+  "dgSpecHash": "WK1TWl7W+uk7FyfGR6lnABDLkSkNXAJ+eovQkC67zk4pYEd3VQ1JLxqZr3QIS0VSWRUxjzUv/WJA/ioT1EXstA==",
   "success": true,
-  "projectFilePath": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo.csproj",
+  "projectFilePath": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yushi\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\yushi\\.nuget\\packages\\fluentassertions\\6.7.0\\fluentassertions.6.7.0.nupkg.sha512",

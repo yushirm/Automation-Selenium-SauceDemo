@@ -1517,11 +1517,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo.csproj",
+      "projectUniqueName": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo.csproj",
       "projectName": "Automation.Selenium.SauceDemo",
-      "projectPath": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo.csproj",
+      "projectPath": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo.csproj",
       "packagesPath": "C:\\Users\\yushi\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\Automation.Selenium.SauceDemo\\obj\\",
+      "outputPath": "C:\\dev\\automation-portfolio\\Automation.Selenium.SauceDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yushi\\AppData\\Roaming\\NuGet\\NuGet.Config",

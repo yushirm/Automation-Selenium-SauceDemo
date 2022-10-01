@@ -5,7 +5,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Libraries.Elements
   internal class CheckoutStepOnePage
   {
     public static readonly By CheckoutStepOneTitleClassName = By.ClassName("title");
-    public static string Title => "CHECKOUT: YOUR INFORMATION";
+    public static string Title => "CHECKOUT: YOUR INFORMATION.";
 
     public static readonly By TxtFirstName = By.Id("first-name");
     public static readonly By TxtLastName = By.Id("last-name");
