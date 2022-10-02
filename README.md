@@ -35,15 +35,15 @@ The purpose of this project is to show how I would create and manage a Selenium 
 ### Test Design Approach <a name = "test_design"></a>
 Test were created using the [Page Object Model](https://www.browserstack.com/guide/page-object-model-in-selenium#:~:text=Page%20Object%20Model%2C%20also%20known,application%20as%20a%20class%20file.) in Selenium. It is a design pattern used in test automation that creates and Object Repository for the web UI elements of the different pages of a website. An outline of how this was implemented is shown below:
 
-![Page Object Model](Media\PageObjectModel.png)
+![Page Object Model](Media/PageObjectModel.png)
 
 Tests are seperated into various classes depending on the page object to be tested. Isolation of tests helps for easier code management and makes it easier to determine Page Object Passed/Failed when running the tests.
 
-![Test Classes](Media\TestClasses.png)
+![Test Classes](Media/TestClasses.png)
 
 The tests were written in the style of <b>Given_When_Then</b>, which is a TDD/BDD approach that helps link test cases with end user interaction and behaviour. It makes the expected outcome more readable leading to test results being eiasier to interpret by non-technical stakeholders.
 
-![Given When Then](Media\GivenWhenThenApproach.png)
+![Given When Then](Media/GivenWhenThenApproach.png)
 
 The UserFlow test suite (SauceDemo.UserFlow.Tests.cs) contains and End-to-End user journey for the site, i.e. From Logging in to Completing a Purchase. The tests assert that the correct elements are present after the user performs an action (e.g. correct Page Header is present).
 
@@ -93,11 +93,11 @@ You can download Visual Studio Professional 2022 from [Here](https://visualstudi
     - ASP.NET and Web Development
     - .NET Desktop development
 
-![WorkFlows](Media\VisualStudioInstaller-WorkFlows.png)
+![WorkFlows](Media/VisualStudioInstaller-WorkFlows.png)
 
 - Confirm that .NET 6.0 is installed by checking the Individual Components tab
 
-![IndividualComponents](Media\VisualStudioInstallerIndividualComponents.png)
+![IndividualComponents](Media/VisualStudioInstallerIndividualComponents.png)
 
 - Complete the installation
 
@@ -107,11 +107,11 @@ The other dependencies can be managed via the Nuget package manager in Visual St
 
 - You can confirm they are installed by navigating to the Nuget Package Manager on Visual Studio
 
-![NPMNavigate](Media\NugetNavigate.png)
+![NPMNavigate](Media/NugetNavigate.png)
 
 - Click on the Installed tab to see packages and manage versions. You can also change versions here.
 
-![NPMInstalled](Media\NugetPM.png)
+![NPMInstalled](Media/NugetPM.png)
 
 ## 🔧 Running the tests <a name = "tests"></a>
 ### Visual Studio Test Runner
@@ -119,16 +119,16 @@ Follow the steps below to run the tests in Visual Studio Professional 2022.
 
 - Select <b>File > Open > Project/Solution</b> in Visual Studio
 
-![VSOpenMenu](Media\VSOpenMenu.png)
+![VSOpenMenu](Media/VSOpenMenu.png)
 
 - Navigate to your checked out repository and open <b>Automation.Selenium.SauceDemo.sln</b>
 - Select <b>Test > Run All Tests</b> to start all tests (or can start them in Test Explorer: <b>Test > Test Explorer</b>)
 
-![VSTestNavigate](Media\VSTestNavigate.png)
+![VSTestNavigate](Media/VSTestNavigate.png)
 
 - Build and Test will begin in the Test Explorer window. Drop down to view the outcomes for each test.
 
-![VSTestExplorer](Media\VSTestExplorer.png)
+![VSTestExplorer](Media/VSTestExplorer.png)
 
 ### Disable Chrome Headless Mode
 The tests are desiged to run in Chrome Headless by default. You can disable setting to view test execution in the Browser.
@@ -136,7 +136,7 @@ The tests are desiged to run in Chrome Headless by default. You can disable sett
 - Open the file <b>".\Helpers\Libraries\Configuration\TestConfiguration.cs"</b>
 - Change the attribute <b>SupportedBrowser</b> to "GoogleChrome" as shown:
 
-![ChromeHeadless](Media\ChromeHeadless.png) ![ChromeUI](Media\ChromeUI.png)
+![ChromeHeadless](Media/ChromeHeadless.png) ![ChromeUI](Media/ChromeUI.png)
 
 The tests wil now run with Chrome UI enabled
 
