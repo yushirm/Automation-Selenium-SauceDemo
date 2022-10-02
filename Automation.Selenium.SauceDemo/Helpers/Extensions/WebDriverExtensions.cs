@@ -24,6 +24,13 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
         {
           var options = new ChromeOptions();
           options.PageLoadStrategy = PageLoadStrategy.None;
+          Driver = new ChromeDriver(options);
+          break;
+        }        
+        case "GoogleChromeHeadless":
+        {
+          var options = new ChromeOptions();
+          options.PageLoadStrategy = PageLoadStrategy.None;
           options.AddArguments("--headless");
           Driver = new ChromeDriver(options);
           break;
