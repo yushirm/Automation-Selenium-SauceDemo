@@ -6,10 +6,10 @@ namespace Automation.Selenium.SauceDemo.Helpers.Scenarios.Setup.Login
 {
   public static class LoginHelper
   {
-    public static void PerformValidLogin(string validUsername, string validPassword)
+    public static void PerformLogin(string username, string password)
     {
-    WebDriverExtensions.ResetElementText(LoginPage.TxtUsername, validUsername);
-    WebDriverExtensions.ResetElementText(LoginPage.TxtPassword, validPassword);
+    WebDriverExtensions.ResetElementText(LoginPage.TxtUsername, username);
+    WebDriverExtensions.ResetElementText(LoginPage.TxtPassword, password);
     WebDriverExtensions.Driver.FindElement(LoginPage.BtnLogin).Click();
     }
   }

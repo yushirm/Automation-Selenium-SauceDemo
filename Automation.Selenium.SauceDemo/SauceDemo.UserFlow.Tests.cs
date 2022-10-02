@@ -73,7 +73,7 @@ namespace Automation.Selenium.SauceDemo
 
       WebDriverExtensions.WaitForItemDisplayed(LoginPage.BtnLogin);
 
-      LoginHelper.PerformValidLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
+      LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
       WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
 
@@ -141,7 +141,7 @@ namespace Automation.Selenium.SauceDemo
 
       WebDriverExtensions.WaitForItemDisplayed(LoginPage.BtnLogin);
 
-      LoginHelper.PerformValidLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
+      LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
       WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
 
@@ -196,7 +196,7 @@ namespace Automation.Selenium.SauceDemo
 
       WebDriverExtensions.WaitForItemDisplayed(LoginPage.BtnLogin);
 
-      LoginHelper.PerformValidLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
+      LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
       WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
 
@@ -260,7 +260,7 @@ namespace Automation.Selenium.SauceDemo
 
       WebDriverExtensions.WaitForItemDisplayed(LoginPage.BtnLogin);
 
-      LoginHelper.PerformValidLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
+      LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
       WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
 
@@ -324,7 +324,7 @@ namespace Automation.Selenium.SauceDemo
 
       WebDriverExtensions.WaitForItemDisplayed(LoginPage.BtnLogin);
 
-      LoginHelper.PerformValidLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
+      LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
       WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
 
