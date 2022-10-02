@@ -130,6 +130,19 @@ Follow the steps below to run the tests in Visual Studio Professional 2022.
 
 ![VSTestExplorer](Media/VSTestExplorer.png)
 
+### Command-Line using Dotnet
+You can also execute the test using the command-line via dotnet
+
+- Navigate to <b>.\bin\Debug\net6.0\</b> via the command-line.
+- Execute the following command:
+
+```
+dotnet test --verbosity detailed Automation.Selenium.SauceDemo.dll
+```
+The test run will display as follows in the command window:
+
+![VSTestExplorer](Media/dotnetOutput.png)
+
 ### Disable Chrome Headless Mode
 The tests are desiged to run in Chrome Headless by default. You can disable setting to view test execution in the Browser.
 
