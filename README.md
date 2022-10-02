@@ -41,27 +41,26 @@ Tests are seperated into various classes depending on the page object to be test
 
 ![Test Classes](Media/TestClasses.png)
 
-The tests were written in the style of <b>Given_When_Then</b>, which is a TDD/BDD approach that helps link test cases with end user interaction and behaviour. It makes the expected outcome more readable leading to test results being eiasier to interpret by non-technical stakeholders.
+The tests were written in the style of <b>Given_When_Then</b>, which is a TDD/BDD approach that helps link test cases with end user interaction and behaviour. It makes the expected outcome more readable leading to test results being easier to interpret by non-technical stakeholders.
 
 ![Given When Then](Media/GivenWhenThenApproach.png)
 
-The UserFlow test suite (SauceDemo.UserFlow.Tests.cs) contains and End-to-End user journey for the site, i.e. From Logging in to Completing a Purchase. The tests assert that the correct elements are present after the user performs an action (e.g. correct Page Header is present).
+The UserFlow test suite (SauceDemo.UserFlow.Tests.cs) contains and End-to-End user journey for the site, i.e. From <b>Logging In</b> to <b>Completing a Purchase</b>. The tests assert that the correct elements are present after the user performs an action (e.g. correct Page Header is present).
 
 There are more scenarios that need to be covered in future so this solution is still a work in progress. Planned future work includes adding tests for the following:
 - Asserting additional page elements and correct element functionality
 - Tests for different user types
 - Negative test cases
+
 The scope of this work in outlined in [TODO.md](./TODO.md).
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-This section outlines what you will need to make sure you can run the tests successfully.
+This section outlines what you will need to run the tests locally.
 
 ### Prerequisites
 This test solution was built and run on the following:
 - Windows OS 
 - Chrome Browser
-
-*Note: The Selenium.WebDriver.ChromeDriver used in the solution has multi-OS support and selects the correct version based on OS that performs the build. More information can be found [here](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver/) and further explanation below.*
 
 This test solution was initially built with the following dependencies:
 - Microsoft Visual Studio 2022 (Version 17.3.5)
@@ -74,7 +73,10 @@ This test solution was initially built with the following dependencies:
 - Selenium.Support (Version 4.5.0)
 - Selenium.WebDriver (Version 4.5.0)
 - Selenium.WebDriver.ChromeDriver (Version 105.0.5195.5200)
-    _Note: Version 105.0.5195.5200 was chosen to ensure compatibility, as using the latest versio might create a mismatch with the version of Google Chrome installed on the system._
+
+*Note 1: Version 105.0.5195.5200 of the Selenium.WebDriver.ChromeDriver was chosen to ensure compatibility, as using the latest versio might create a mismatch with the version of Google Chrome installed on the system.*
+
+*Note 2: The Selenium.WebDriver.ChromeDriver has multi-OS support and selects the correct version based on your OS during build. Configuration can be found [here](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver/).*
 
 ### Installing
 <u>Cloning the repository</u>
@@ -84,6 +86,7 @@ Create clone of the repository on your local machine via command-line or other m
 ```
 $ git clone https://github.com/yushirm/Automation-Selenium-SauceDemo/
 ```
+
 
 <u>Installing Visual Studio Professional 2022</u>
 
@@ -101,6 +104,7 @@ You can download Visual Studio Professional 2022 from [Here](https://visualstudi
 
 - Complete the installation
 
+
 <u>Package Management</u>
 
 The other dependencies can be managed via the Nuget package manager in Visual Studio. This will only be available when the solution is loaded. These do not need to be installed by default as they are included in the solutionl.
@@ -112,6 +116,7 @@ The other dependencies can be managed via the Nuget package manager in Visual St
 - Click on the Installed tab to see packages and manage versions. You can also change versions here.
 
 ![NPMInstalled](Media/NugetPM.png)
+
 
 ## 🔧 Running the tests <a name = "tests"></a>
 ### Visual Studio Test Runner
