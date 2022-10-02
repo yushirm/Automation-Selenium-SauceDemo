@@ -79,7 +79,7 @@ This test solution was initially built with the following dependencies:
 *Note 2: The Selenium.WebDriver.ChromeDriver has multi-OS support and selects the correct version based on your OS during build. Configuration can be found [here](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver/).*
 
 ### Installing
-<u>Cloning the repository</u>
+<b>Cloning the repository</b>
 
 Create clone of the repository on your local machine via command-line or other management tool.
 
@@ -88,7 +88,7 @@ $ git clone https://github.com/yushirm/Automation-Selenium-SauceDemo/
 ```
 
 
-<u>Installing Visual Studio Professional 2022</u>
+<b>Installing Visual Studio Professional 2022</b>
 
 You can download Visual Studio Professional 2022 from [Here](https://visualstudio.microsoft.com/vs/).
 - Run the installer
@@ -105,7 +105,7 @@ You can download Visual Studio Professional 2022 from [Here](https://visualstudi
 - Complete the installation
 
 
-<u>Package Management</u>
+<b>Package Management</b>
 
 The other dependencies can be managed via the Nuget package manager in Visual Studio. This will only be available when the solution is loaded. These do not need to be installed by default as they are included in the solutionl.
 
@@ -138,7 +138,7 @@ Follow the steps below to run the tests in Visual Studio Professional 2022.
 ### Command-Line using Dotnet
 You can also execute the test using the command-line via dotnet
 
-- Navigate to <b>.\bin\Debug\net6.0\</b> via the command-line.
+- Navigate to <b>.\bin\Debug\net6.0\ </b> via the command-line.
 - Execute the following command:
 
 ```
