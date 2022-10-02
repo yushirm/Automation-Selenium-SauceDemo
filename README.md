@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img width=200px height=200px src="Media\ProjectLogo.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">
@@ -16,7 +16,7 @@ Automation-Selenium-SauceDemo</h3>
 
 ---
 
-A test automation project using the Selenium Automation Framework targeting [SauceDemo](https://www.saucedemo.com/) (A sample website built by SauceLabs that allows users to practice browser automation.)
+A test automation project using the Selenium Automation Framework that targets Sauce Labs [Swag Labs](https://www.saucedemo.com/) site.
 
 ## 📝 Table of Contents
 
@@ -150,4 +150,3 @@ The tests wil now run with Chrome UI enabled
 
 ## ✍️ Authors <a name = "authors"></a>
 - [yushirm](https://www.linkedin.com/in/yushir-rugnath-maharaj-44b86222/) - Initial design and coding
-
