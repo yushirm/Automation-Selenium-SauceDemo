@@ -1,0 +1,30 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ initial ]
+  pull_request:
+    branches: [ initial ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Install Project Dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test Scenarios
+      uses: zyborg/dotnet-tests-report@v1
+      with:
+        project_path: Automation.Selenium.SauceDemo
+        report_name: saucedemo_selenium_tests
+        report_title: SauceDemo Selenium Tests
+        github_token: ${{ secrets.GITHUB_TOKEN }}
