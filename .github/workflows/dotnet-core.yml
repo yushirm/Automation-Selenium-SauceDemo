@@ -12,9 +12,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2.8.0
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@871f041373faaad213a635d9afb62905ec029bbb # v1.10.1
       with:
         dotnet-version: 6.0.x
     - name: Install Project Dependencies
@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test Scenarios
-      uses: zyborg/dotnet-tests-report@v1
+      uses: zyborg/dotnet-tests-report@ce730c068bb73480dcb37c02d40890bf8b44c953 # v1.4.4
       with:
         project_path: Automation.Selenium.SauceDemo
         report_name: saucedemo_selenium_tests
