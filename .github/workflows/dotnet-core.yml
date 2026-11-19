@@ -1,4 +1,4 @@
-name: .NET Core
+name: .NET tests
 
 on:
   push:
@@ -6,25 +6,36 @@ on:
   pull_request:
     branches: [ main ]
 
-jobs:
-  build:
+permissions:
+  contents: read
 
-    runs-on: windows-latest
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-    - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2.8.0
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@871f041373faaad213a635d9afb62905ec029bbb # v1.10.1
+    - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       with:
-        dotnet-version: 6.0.x
-    - name: Install Project Dependencies
+        persist-credentials: false
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+    - name: Restore
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Test Scenarios
-      uses: zyborg/dotnet-tests-report@ce730c068bb73480dcb37c02d40890bf8b44c953 # v1.4.4
+    - name: Run the SauceDemo tests (headless Chrome)
+      run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=results.trx" --logger "console;verbosity=normal"
+    - name: Keep the test results
+      if: always()
+      uses: actions/upload-artifact@v4
       with:
-        project_path: Automation.Selenium.SauceDemo
-        report_name: saucedemo_selenium_tests
-        report_title: SauceDemo Selenium Tests
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        name: test-results
+        path: '**/TestResults/*.trx'
+        retention-days: 14

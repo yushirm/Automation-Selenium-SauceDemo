@@ -31,7 +31,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
         {
           var options = new ChromeOptions();
           options.PageLoadStrategy = PageLoadStrategy.None;
-          options.AddArguments("--headless");
+          options.AddArguments("--headless", "--window-size=1920,1080");
           Driver = new ChromeDriver(options);
           break;
         }

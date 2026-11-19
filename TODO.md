@@ -11,14 +11,10 @@ This is the markdown todo file for project Automation-Selenium-SauceDemo.
     - [ ] Flows for locked_out_user, problem_user, performance_glitch_user
     - [ ] Handling incorrect data types in forms
     - [ ] Session Time-out tests
-- [ ] Importing remaining webdrivers    
+- [ ] Importing remaining webdrivers
+- [ ] Refactor user navigation during test setup (helper method, defined routes)
+- [ ] Screenshot on failure, with a flag to turn off headless
 
-### In Progress
-- [ ] Refactoring user navigation during test setup
-    - [ ] Create helper method for user navigation
-    - [ ] Define navigation routes
-- [ ] Adding screenshot functionality
-    - [ ] Create flag to disable headless when using screenshot
 
 ### Done ✓
 
@@ -28,4 +24,5 @@ This is the markdown todo file for project Automation-Selenium-SauceDemo.
     - [✓] Write basic navigation/functionality tests
 - [✓] Upload to GitHub
 - [✓] Create Action to execute tests on push/pull request
+- [✓] Move to .NET 10 and Selenium Manager; CI runs headless Chrome on Ubuntu (Nov 2026)
 - [✓] Create README.md
