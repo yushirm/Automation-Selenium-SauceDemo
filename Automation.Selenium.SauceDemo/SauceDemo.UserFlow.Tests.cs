@@ -1,4 +1,4 @@
-using Automation.Selenium.SauceDemo.Helpers.Extensions;
+﻿using Automation.Selenium.SauceDemo.Helpers.Extensions;
 using Automation.Selenium.SauceDemo.Helpers.Libraries.Configuration;
 using Automation.Selenium.SauceDemo.Helpers.Libraries.Elements;
 using Automation.Selenium.SauceDemo.Helpers.Scenarios.Setup.CheckOutStepOne;
@@ -40,7 +40,7 @@ namespace Automation.Selenium.SauceDemo
       WebDriverExtensions.ResetElementText(LoginPage.TxtPassword, LoginPage.CorrectPassword);
       WebDriverExtensions.Driver.FindElement(LoginPage.BtnLogin).Click();
 
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert
       pageTitle.Should().Be(InventoryPage.Title);
@@ -94,7 +94,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(InventoryPage.AddToCartBackPackBtn).Click();
-      var cartBadgeState = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var cartBadgeState = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.ShoppingCartBadgeOneItem);
 
       // Assert
       cartBadgeState.Should().Be(InventoryPage.ShoppingCartBadgeOneItem);
@@ -109,7 +109,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(InventoryPage.RemoveFromCartBackPackBtn).Click();
-      var cartLinkState = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var cartLinkState = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.ShoppingCartLinkEmpty);
 
       // Assert
       cartLinkState.Should().Be(InventoryPage.ShoppingCartLinkEmpty);
@@ -124,7 +124,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(InventoryPage.ShoppingCartLinkClassName).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CartPage.Title);
 
       // Assert
       pageTitle.Should().Be(CartPage.Title);
@@ -165,7 +165,7 @@ namespace Automation.Selenium.SauceDemo
       
       // Act
       WebDriverExtensions.Driver.FindElement(CartPage.CheckOutBtn).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CheckoutStepOnePage.Title);
 
       // Assert
       pageTitle.Should().Be(CheckoutStepOnePage.Title);
@@ -179,7 +179,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(CartPage.ContinueShoppingBtn).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert
       pageTitle.Should().Be(InventoryPage.Title);
@@ -229,7 +229,7 @@ namespace Automation.Selenium.SauceDemo
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtPostalCode, CheckoutStepOnePage.ValidPostalCode);
       WebDriverExtensions.Driver.FindElement(CheckoutStepOnePage.ContinueBtn).Click();
 
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CheckoutStepTwoPage.Title);
 
       // Assert
       pageTitle.Should().Be(CheckoutStepTwoPage.Title);
@@ -243,7 +243,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(CheckoutStepOnePage.CancelBtn).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CartPage.Title);
 
       // Assert
       pageTitle.Should().Be(CartPage.Title);
@@ -293,7 +293,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(CheckoutStepTwoPage.FinishBtn).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CheckoutCompletePage.Title);
 
       // Assert
       pageTitle.Should().Be(CheckoutCompletePage.Title);
@@ -307,7 +307,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(CheckoutStepTwoPage.CancelBtn).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert
       pageTitle.Should().Be(InventoryPage.Title);
@@ -360,7 +360,7 @@ namespace Automation.Selenium.SauceDemo
 
       // Act
       WebDriverExtensions.Driver.FindElement(CheckoutCompletePage.BackToHomeBtn).Click();
-      var pageTitle = WebDriverExtensions.Driver.FindElement(expected).Text;
+      var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert
       pageTitle.Should().Be(InventoryPage.Title);

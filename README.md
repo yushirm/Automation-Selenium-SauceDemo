@@ -8,7 +8,7 @@ Automation-Selenium-SauceDemo</h3>
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![.NET tests](https://github.com/yushirm/Automation-Selenium-SauceDemo/actions/workflows/dotnet-core.yml/badge.svg?branch=main)](https://github.com/yushirm/Automation-Selenium-SauceDemo/actions/workflows/dotnet-core.yml)
 [![GitHub Issues](https://img.shields.io/github/issues/yushirm/Automation-Selenium-SauceDemo.svg)](https://github.com/yushirm/Automation-Selenium-SauceDemo/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/yushirm/Automation-Selenium-SauceDemo.svg)](https://github.com/yushirm/Automation-Selenium-SauceDemo/pulls)
 
@@ -30,7 +30,7 @@ A test automation project using the Selenium Automation Framework that targets S
 
 ## 🧐 About <a name = "about"></a>
 
-The purpose of this project is to show how I would create and manage a Selenium Test Automation Framework. The project consists of functional tests for the SauceDemo website, specifically, using automation to simulate expected user behaviour (e.g. Login, Add to Cart, Checkout, etc). It's been written using C# and based on the .NET 6.0 framework. NUint and Fluent Assertions were used to manage test execution and assertion.
+The purpose of this project is to show how I would create and manage a Selenium Test Automation Framework. The project consists of functional tests for the SauceDemo website, specifically, using automation to simulate expected user behaviour (e.g. Login, Add to Cart, Checkout, etc). It's written in C# on .NET 10. NUnit and Fluent Assertions were used to manage test execution and assertion.
 
 ### Test Design Approach <a name = "test_design"></a>
 Test were created using the [Page Object Model](https://www.browserstack.com/guide/page-object-model-in-selenium#:~:text=Page%20Object%20Model%2C%20also%20known,application%20as%20a%20class%20file.) in Selenium. It is a design pattern used in test automation that creates and Object Repository for the web UI elements of the different pages of a website. An outline of how this was implemented is shown below:
@@ -62,21 +62,13 @@ This test solution was built and run on the following:
 - Windows OS 
 - Chrome Browser
 
-This test solution was initially built with the following dependencies:
-- Microsoft Visual Studio 2022 (Version 17.3.5)
-- Microsoft.NET.Test.Sdk (Version 17.3.2)
-- FluentAssertions (Version 6.7.0)
-- NUnit (Version 3.13.3)
-- NUnit3TestAdapter (Version 4.2.1)
-- NUnit.Analyzers (Version 3.3.0)
-- coverlet.collector (Version 3.1.2)
-- Selenium.Support (Version 4.5.0)
-- Selenium.WebDriver (Version 4.5.0)
-- Selenium.WebDriver.ChromeDriver (Version 105.0.5195.5200)
+The solution was first built in 2022 on .NET 6 with Selenium 4.5 and a pinned ChromeDriver package. In November 2026 it moved to:
+- .NET 10
+- Selenium.WebDriver and Selenium.Support 4.53
+- NUnit 5 with NUnit3TestAdapter 6
+- FluentAssertions 7.2 (version 8 needs a paid licence, so it stays on 7)
 
-*Note 1: Version 105.0.5195.5200 of the Selenium.WebDriver.ChromeDriver was chosen to ensure compatibility, as using the latest versio might create a mismatch with the version of Google Chrome installed on the system.*
-
-*Note 2: The Selenium.WebDriver.ChromeDriver has multi-OS support and selects the correct version based on your OS during build. Configuration can be found [here](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver/).*
+*There's no ChromeDriver package any more. Selenium Manager, built into Selenium since 4.6, downloads the driver that matches the Chrome installed on the machine, so the old version-mismatch problem goes away.*
 
 ### Installing
 <b>Cloning the repository</b>
@@ -98,7 +90,7 @@ You can download Visual Studio Professional 2022 from [Here](https://visualstudi
 
 ![WorkFlows](Media/VisualStudioInstaller-WorkFlows.png)
 
-- Confirm that .NET 6.0 is installed by checking the Individual Components tab
+- Confirm that the .NET 10 SDK is installed by checking the Individual Components tab
 
 ![IndividualComponents](Media/VisualStudioInstallerIndividualComponents.png)
 
@@ -138,12 +130,13 @@ Follow the steps below to run the tests in Visual Studio Professional 2022.
 ### Command-Line using Dotnet
 You can also execute the test using the command-line via dotnet
 
-- Navigate to <b>.\bin\Debug\net6.0\ </b> via the command-line.
-- Execute the following command:
+- From the repository root, run:
 
 ```
-dotnet test --verbosity detailed Automation.Selenium.SauceDemo.dll
+dotnet test
 ```
+
+You need Google Chrome installed. The tests run headless.
 The test run will display as follows in the command window:
 
 ![VSTestExplorer](Media/dotnetOutput.png)
@@ -160,7 +153,7 @@ The tests wil now run with Chrome UI enabled
 
 ## ⛏️ Tools Used <a name = "built_using"></a>
 - [Visual Studio Professional](https://visualstudio.microsoft.com/vs/) - 2022 V17.3.5
-- [.NET 6.0 Framework](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 - Testing Frameworks
     - [Selenium](https://www.selenium.dev/)
     - [NUnit](https://nunit.org/)
