@@ -63,6 +63,18 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
       wait.Until(d => d.FindElement(item).Displayed.Equals(true));
     }
 
+    // After a click, the old page's heading can still be on screen for a moment.
+    // Give the expected text a few seconds to appear, then return whatever is there,
+    // so a wrong page still fails the assertion with the real text.
+    public static string ReadTextOnceSettled(By element, string expected, int waitSeconds = 10)
+    {
+      var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(waitSeconds));
+      wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
+      try { wait.Until(d => d.FindElement(element).Text == expected); }
+      catch (WebDriverTimeoutException) { }
+      return Driver.FindElement(element).Text;
+    }
+
     public static void ResetElementText(By element, string newTextValue)
     {
       Driver.FindElement(element).Clear();

@@ -6,7 +6,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Libraries.Elements
   {
     public static readonly By InventoryTitleClassName = By.ClassName("title");
     
-    public static string Title => "PRODUCTS";
+    public static string Title => "Products";
     
     public static readonly By AddToCartBackPackBtn = By.Name("add-to-cart-sauce-labs-backpack");
     public static readonly By RemoveFromCartBackPackBtn = By.Name("remove-sauce-labs-backpack");
