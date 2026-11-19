@@ -23,14 +23,14 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
         case "GoogleChrome":
         {
           var options = new ChromeOptions();
-          options.PageLoadStrategy = PageLoadStrategy.None;
+          options.PageLoadStrategy = PageLoadStrategy.Normal;
           Driver = new ChromeDriver(options);
           break;
         }        
         case "GoogleChromeHeadless":
         {
           var options = new ChromeOptions();
-          options.PageLoadStrategy = PageLoadStrategy.None;
+          options.PageLoadStrategy = PageLoadStrategy.Normal;
           options.AddArguments("--headless", "--window-size=1920,1080");
           Driver = new ChromeDriver(options);
           break;
@@ -51,11 +51,15 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
           break;
         }
       }
+
+      // SauceDemo renders client-side, so elements appear a moment after navigation.
+      Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
     }
 
     public static void WaitForItemDisplayed(By item, int waitSeconds = 60)
     {
       var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(waitSeconds));
+      wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
       wait.Until(d => d.FindElement(item).Displayed.Equals(true));
     }
 
