@@ -108,21 +108,10 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
       });
     }
 
-    // Seconds to wait for the URL to leave the starting page before treating the first click as
-    // dropped. SauceDemo changes page client-side, so a click that registered moves the URL
-    // almost at once; two seconds is generous for that and short enough to retry promptly.
-    private const int DroppedClickWaitSeconds = 2;
-
     // Clicks a control that navigates, then waits for the next page's URL, so nothing reads
     // the next page while the old one is still on screen.
-    //
-    // SauceDemo sometimes drops a click that lands right after a page has rendered: the button
-    // is visible, enabled and on top, yet the click never reaches the page and nothing happens.
-    // The Playwright port of this suite sees the same thing in WebKit, where a click about 40 ms
-    // after render was dropped in 2 of 15 runs and a later click was not. So if the URL has not
-    // left the starting page within a short wait, the first click is treated as dropped and
-    // clicked once more, then the full wait applies. A click that navigates somewhere
-    // unexpected is not retried, and fails.
+    // If the browser has not left the starting URL at all, the click never registered, so it
+    // is retried once. A click that navigates somewhere unexpected is not retried, and fails.
     public static void ClickAndWaitForUrl(By element, string urlFragment, int waitSeconds = 10)
     {
       var startUrl = Driver.Url;
@@ -131,27 +120,17 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
 
       try
       {
-        WaitForUrl(urlFragment, Math.Min(DroppedClickWaitSeconds, waitSeconds));
+        WaitForUrl(urlFragment, waitSeconds);
         return;
       }
       catch (WebDriverTimeoutException) when (Driver.Url == startUrl)
       {
-        TestContext.Progress.WriteLine(
-          $"Click on {element} did not leave {startUrl} within {DroppedClickWaitSeconds}s; treating it as dropped and clicking once more.");
+        TestContext.Progress.WriteLine($"Click on {element} did not leave {startUrl}; clicking once more.");
       }
       catch (WebDriverTimeoutException)
       {
-        // The URL moved, but not yet to the expected page: give it the rest of the full wait.
-        try
-        {
-          WaitForUrl(urlFragment, waitSeconds);
-          return;
-        }
-        catch (WebDriverTimeoutException)
-        {
-          WriteNavigationDiagnostics(element);
-          throw;
-        }
+        WriteNavigationDiagnostics(element);
+        throw;
       }
 
       try
