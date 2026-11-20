@@ -10,7 +10,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Scenarios.Setup.CheckOutStepOne
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtFirstName, firstName);
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtLastName, lastName);
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtPostalCode, postalCode);
-      WebDriverExtensions.Driver.FindElement(CheckoutStepOnePage.ContinueBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutStepOnePage.ContinueBtn, CheckoutStepTwoPage.Url);
     }
   }
 }

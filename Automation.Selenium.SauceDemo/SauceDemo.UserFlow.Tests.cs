@@ -38,7 +38,7 @@ namespace Automation.Selenium.SauceDemo
       // Act
       WebDriverExtensions.ResetElementText(LoginPage.TxtUsername, LoginPage.CorrectUsername);
       WebDriverExtensions.ResetElementText(LoginPage.TxtPassword, LoginPage.CorrectPassword);
-      WebDriverExtensions.Driver.FindElement(LoginPage.BtnLogin).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(LoginPage.BtnLogin, InventoryPage.Url);
 
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
@@ -54,7 +54,8 @@ namespace Automation.Selenium.SauceDemo
       // Act
       WebDriverExtensions.ResetElementText(LoginPage.TxtUsername, LoginPage.IncorrectUsername);
       WebDriverExtensions.ResetElementText(LoginPage.TxtPassword, LoginPage.CorrectPassword);
-      WebDriverExtensions.Driver.FindElement(LoginPage.BtnLogin).Click();
+      WebDriverExtensions.Click(LoginPage.BtnLogin);
+      WebDriverExtensions.WaitForItemDisplayed(LoginPage.LblErrorMessageElement, 10);
 
       var lblErrorMessage = WebDriverExtensions.Driver.FindElement(LoginPage.LblErrorMessageElement).Text;
 
@@ -74,10 +75,6 @@ namespace Automation.Selenium.SauceDemo
       WebDriverExtensions.WaitForItemDisplayed(LoginPage.BtnLogin);
 
       LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
-
-      WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
-
-
     }
     
     [TearDown]
@@ -93,7 +90,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = InventoryPage.ShoppingCartBadgeClassName;
 
       // Act
-      WebDriverExtensions.Driver.FindElement(InventoryPage.AddToCartBackPackBtn).Click();
+      WebDriverExtensions.Click(InventoryPage.AddToCartBackPackBtn);
       var cartBadgeState = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.ShoppingCartBadgeOneItem);
 
       // Assert
@@ -105,10 +102,10 @@ namespace Automation.Selenium.SauceDemo
     {
       // Arrange
       var expected = InventoryPage.ShoppingCartLinkClassName;
-      WebDriverExtensions.Driver.FindElement(InventoryPage.AddToCartBackPackBtn).Click();
+      WebDriverExtensions.Click(InventoryPage.AddToCartBackPackBtn);
 
       // Act
-      WebDriverExtensions.Driver.FindElement(InventoryPage.RemoveFromCartBackPackBtn).Click();
+      WebDriverExtensions.Click(InventoryPage.RemoveFromCartBackPackBtn);
       var cartLinkState = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.ShoppingCartLinkEmpty);
 
       // Assert
@@ -120,10 +117,10 @@ namespace Automation.Selenium.SauceDemo
     {
       // Arrange
       var expected = CartPage.CartTitleClassName;
-      WebDriverExtensions.Driver.FindElement(InventoryPage.AddToCartBackPackBtn).Click();
+      WebDriverExtensions.Click(InventoryPage.AddToCartBackPackBtn);
 
       // Act
-      WebDriverExtensions.Driver.FindElement(InventoryPage.ShoppingCartLinkClassName).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(InventoryPage.ShoppingCartLinkClassName, CartPage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CartPage.Title);
 
       // Assert
@@ -143,12 +140,8 @@ namespace Automation.Selenium.SauceDemo
 
       LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
-      WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
-
       InventoryHelper.AddItemToCart(TestConfiguration.AddBackPackToCartButton);
       InventoryHelper.OpenCart();
-
-      WebDriverExtensions.WaitForItemDisplayed(CartPage.CartTitleClassName);
     }
 
     [TearDown]
@@ -164,7 +157,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = CheckoutStepOnePage.CheckoutStepOneTitleClassName;
       
       // Act
-      WebDriverExtensions.Driver.FindElement(CartPage.CheckOutBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CartPage.CheckOutBtn, CheckoutStepOnePage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CheckoutStepOnePage.Title);
 
       // Assert
@@ -178,7 +171,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = InventoryPage.InventoryTitleClassName;
 
       // Act
-      WebDriverExtensions.Driver.FindElement(CartPage.ContinueShoppingBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CartPage.ContinueShoppingBtn, InventoryPage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert
@@ -198,18 +191,10 @@ namespace Automation.Selenium.SauceDemo
 
       LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
-      WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
-
       InventoryHelper.AddItemToCart(TestConfiguration.AddBackPackToCartButton);
       InventoryHelper.OpenCart();
 
-      WebDriverExtensions.WaitForItemDisplayed(CartPage.CartTitleClassName);
-
-      WebDriverExtensions.Driver.FindElement(CartPage.CheckOutBtn).Click();
-
-      WebDriverExtensions.WaitForItemDisplayed(CheckoutStepOnePage.CheckoutStepOneTitleClassName);
-
-
+      WebDriverExtensions.ClickAndWaitForUrl(CartPage.CheckOutBtn, CheckoutStepOnePage.Url);
     }
 
     [TearDown]
@@ -227,7 +212,7 @@ namespace Automation.Selenium.SauceDemo
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtFirstName, CheckoutStepOnePage.ValidFirstName);
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtLastName, CheckoutStepOnePage.ValidLastName);
       WebDriverExtensions.ResetElementText(CheckoutStepOnePage.TxtPostalCode, CheckoutStepOnePage.ValidPostalCode);
-      WebDriverExtensions.Driver.FindElement(CheckoutStepOnePage.ContinueBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutStepOnePage.ContinueBtn, CheckoutStepTwoPage.Url);
 
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CheckoutStepTwoPage.Title);
 
@@ -242,7 +227,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = CartPage.CartTitleClassName;
 
       // Act
-      WebDriverExtensions.Driver.FindElement(CheckoutStepOnePage.CancelBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutStepOnePage.CancelBtn, CartPage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CartPage.Title);
 
       // Assert
@@ -262,22 +247,12 @@ namespace Automation.Selenium.SauceDemo
 
       LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
-      WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
-
       InventoryHelper.AddItemToCart(TestConfiguration.AddBackPackToCartButton);
       InventoryHelper.OpenCart();
 
-      WebDriverExtensions.WaitForItemDisplayed(CartPage.CartTitleClassName);
-
-      WebDriverExtensions.Driver.FindElement(CartPage.CheckOutBtn).Click();
-
-      WebDriverExtensions.WaitForItemDisplayed(CheckoutStepOnePage.CheckoutStepOneTitleClassName);
+      WebDriverExtensions.ClickAndWaitForUrl(CartPage.CheckOutBtn, CheckoutStepOnePage.Url);
 
       CheckOutStepOneHelper.PerformValidCheckOutStepOne(TestConfiguration.ValidFirstName, TestConfiguration.ValidLastName, TestConfiguration.ValidPostalCode);
-
-      WebDriverExtensions.WaitForItemDisplayed(CheckoutStepTwoPage.CheckoutStepTwoTitleClassName);
-
-
     }
 
     [TearDown]
@@ -292,7 +267,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = CheckoutCompletePage.CheckoutCompleteTitleClassName;
 
       // Act
-      WebDriverExtensions.Driver.FindElement(CheckoutStepTwoPage.FinishBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutStepTwoPage.FinishBtn, CheckoutCompletePage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, CheckoutCompletePage.Title);
 
       // Assert
@@ -306,7 +281,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = InventoryPage.InventoryTitleClassName;
 
       // Act
-      WebDriverExtensions.Driver.FindElement(CheckoutStepTwoPage.CancelBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutStepTwoPage.CancelBtn, InventoryPage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert
@@ -326,25 +301,14 @@ namespace Automation.Selenium.SauceDemo
 
       LoginHelper.PerformLogin(TestConfiguration.validUserName, TestConfiguration.validPassword);
 
-      WebDriverExtensions.WaitForItemDisplayed(InventoryPage.InventoryTitleClassName);
-
       InventoryHelper.AddItemToCart(TestConfiguration.AddBackPackToCartButton);
       InventoryHelper.OpenCart();
 
-      WebDriverExtensions.WaitForItemDisplayed(CartPage.CartTitleClassName);
-
-      WebDriverExtensions.Driver.FindElement(CartPage.CheckOutBtn).Click();
-
-      WebDriverExtensions.WaitForItemDisplayed(CheckoutStepOnePage.CheckoutStepOneTitleClassName);
+      WebDriverExtensions.ClickAndWaitForUrl(CartPage.CheckOutBtn, CheckoutStepOnePage.Url);
 
       CheckOutStepOneHelper.PerformValidCheckOutStepOne(TestConfiguration.ValidFirstName, TestConfiguration.ValidLastName, TestConfiguration.ValidPostalCode);
 
-      WebDriverExtensions.WaitForItemDisplayed(CheckoutStepTwoPage.CheckoutStepTwoTitleClassName);
-
-      WebDriverExtensions.Driver.FindElement(CheckoutStepTwoPage.FinishBtn).Click();
-
-      WebDriverExtensions.WaitForItemDisplayed(CheckoutCompletePage.CheckoutCompleteTitleClassName);
-
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutStepTwoPage.FinishBtn, CheckoutCompletePage.Url);
     }
 
     [TearDown]
@@ -359,7 +323,7 @@ namespace Automation.Selenium.SauceDemo
       var expected = InventoryPage.InventoryTitleClassName;
 
       // Act
-      WebDriverExtensions.Driver.FindElement(CheckoutCompletePage.BackToHomeBtn).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(CheckoutCompletePage.BackToHomeBtn, InventoryPage.Url);
       var pageTitle = WebDriverExtensions.ReadTextOnceSettled(expected, InventoryPage.Title);
 
       // Assert

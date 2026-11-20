@@ -9,12 +9,13 @@ namespace Automation.Selenium.SauceDemo.Helpers.Scenarios.Setup.Inventory
   {
     public static void AddItemToCart(By itemToAdd)
     {
-      WebDriverExtensions.Driver.FindElement(itemToAdd).Click();
+      WebDriverExtensions.Click(itemToAdd);
+      WebDriverExtensions.WaitForItemDisplayed(InventoryPage.ShoppingCartBadgeClassName, 10);
     }
 
     public static void OpenCart()
     {
-      WebDriverExtensions.Driver.FindElement(InventoryPage.ShoppingCartLinkClassName).Click();
+      WebDriverExtensions.ClickAndWaitForUrl(InventoryPage.ShoppingCartLinkClassName, CartPage.Url);
     }
   }
 }
