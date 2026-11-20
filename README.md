@@ -20,6 +20,8 @@ A test automation project using the Selenium Automation Framework that targets S
 
 This suite was later ported to Playwright Java: [automation-playwright-saucedemo](https://github.com/yushirm/automation-playwright-saucedemo).
 
+> **CI is intermittently red on the cart and checkout pages; under investigation.** Some runs lose clicks and typing on those pages: the page is loaded and the control is on top, but the input never reaches it. A retry doesn't help. The browser and driver version doesn't explain it either. [Evidence so far](https://github.com/yushirm/Automation-Selenium-SauceDemo/pull/11#issuecomment-7041514264). CI now keeps ChromeDriver's verbose log for every test (`TestResults/chromedriver` in the `test-results` artifact), so the next red run records whether the input was sent to Chrome.
+
 ## 📝 Table of Contents
 
 - [About](#about)
