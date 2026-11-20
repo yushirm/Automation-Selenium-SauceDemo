@@ -10,7 +10,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Scenarios.Setup.Login
     {
     WebDriverExtensions.ResetElementText(LoginPage.TxtUsername, username);
     WebDriverExtensions.ResetElementText(LoginPage.TxtPassword, password);
-    WebDriverExtensions.Driver.FindElement(LoginPage.BtnLogin).Click();
+    WebDriverExtensions.ClickAndWaitForUrl(LoginPage.BtnLogin, InventoryPage.Url);
     }
   }
 }

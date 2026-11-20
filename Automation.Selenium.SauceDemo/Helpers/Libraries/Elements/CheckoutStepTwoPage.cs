@@ -4,6 +4,8 @@ namespace Automation.Selenium.SauceDemo.Helpers.Libraries.Elements
 {
   internal class CheckoutStepTwoPage
   {
+    public static string Url => "/checkout-step-two.html";
+
     public static readonly By CheckoutStepTwoTitleClassName = By.ClassName("title");
     public static string Title => "Checkout: Overview";
 

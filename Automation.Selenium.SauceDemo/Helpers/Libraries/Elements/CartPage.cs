@@ -4,6 +4,8 @@ namespace Automation.Selenium.SauceDemo.Helpers.Libraries.Elements
 {
   internal class CartPage
   {
+    public static string Url => "/cart.html";
+
     public static readonly By CartTitleClassName = By.ClassName("title");
     public static string Title => "Your Cart";
 

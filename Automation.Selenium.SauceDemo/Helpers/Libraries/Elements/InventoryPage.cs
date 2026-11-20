@@ -4,6 +4,8 @@ namespace Automation.Selenium.SauceDemo.Helpers.Libraries.Elements
 {
   internal class InventoryPage
   {
+    public static string Url => "/inventory.html";
+
     public static readonly By InventoryTitleClassName = By.ClassName("title");
     
     public static string Title => "Products";
