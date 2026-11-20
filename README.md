@@ -18,6 +18,8 @@ Automation-Selenium-SauceDemo</h3>
 
 A test automation project using the Selenium Automation Framework that targets Sauce Labs [Swag Labs](https://www.saucedemo.com/) site.
 
+This suite was later ported to Playwright Java: [automation-playwright-saucedemo](https://github.com/yushirm/automation-playwright-saucedemo).
+
 ## 📝 Table of Contents
 
 - [About](#about)
