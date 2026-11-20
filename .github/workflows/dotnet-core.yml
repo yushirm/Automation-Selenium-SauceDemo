@@ -40,4 +40,5 @@ jobs:
         path: |
           **/TestResults/*.trx
           **/TestResults/diagnostics/**
+          **/TestResults/chromedriver/**
         retention-days: 14
