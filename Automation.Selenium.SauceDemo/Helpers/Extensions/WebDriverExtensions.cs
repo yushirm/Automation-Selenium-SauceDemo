@@ -35,7 +35,7 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
           options.AddArguments("--headless", "--window-size=1920,1080");
           // Keeps the page's console output, so a failure can show any script errors.
           options.SetLoggingPreference(LogType.Browser, LogLevel.All);
-          Driver = new ChromeDriver(options);
+          Driver = new ChromeDriver(VerboseChromeDriverService(), options);
           break;
         }
         case "InternetExplorer":
@@ -57,6 +57,22 @@ namespace Automation.Selenium.SauceDemo.Helpers.Extensions
 
       // SauceDemo renders client-side, so elements appear a moment after navigation.
       Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+    }
+
+    // Investigation of the intermittent dropped clicks and typing on the cart and checkout pages:
+    // ChromeDriver's verbose log records each WebDriver command and the DevTools input events it
+    // sends for it, so a failing run shows whether a click or keystroke was dispatched to Chrome
+    // at all. One log per test, under TestResults/chromedriver, uploaded by CI.
+    private static ChromeDriverService VerboseChromeDriverService()
+    {
+      var directory = Path.Combine(TestContext.CurrentContext.WorkDirectory, "TestResults", "chromedriver");
+      Directory.CreateDirectory(directory);
+      var name = string.Concat(TestContext.CurrentContext.Test.Name.Where(char.IsLetterOrDigit));
+
+      var service = ChromeDriverService.CreateDefaultService();
+      service.LogPath = Path.Combine(directory, name + ".log");
+      service.EnableVerboseLogging = true;
+      return service;
     }
 
     public static void WaitForItemDisplayed(By item, int waitSeconds = 60)
